@@ -1,54 +1,43 @@
-# CPPDS_Exception_Handling
-# C++ Exception Handling
+# C++ Code Examples
 
-This repository contains examples and explanations of exception handling in C++. Exception handling is a mechanism that allows you to gracefully handle errors and unexpected conditions in your code. This README provides an overview of how to work with exception handling in C++.
+This repository contains C++ code examples that demonstrate exception handling in C++. Below is a code snippet for an example that illustrates exception handling with different catch blocks and a description of the code.
 
-## Table of Contents
-- [Exception Handling](#exception-handling)
-  - [Try-Catch Blocks](#try-catch-blocks)
-  - [Throwing Exceptions](#throwing-exceptions)
-  - [Standard Exception Classes](#standard-exception-classes)
-- [Algorithm](#algorithm)
-- [Output](#output)
+## Example: Exception Handling with Multiple Catch Blocks
 
-## Exception Handling
+### Description
+This code snippet demonstrates C++ exception handling with different catch blocks based on the value of an input number `i`. The program prompts the user to enter a value for `i`, and based on its value, different exceptions are thrown and caught.
 
-### Try-Catch Blocks
-
-In C++, exception handling is done using `try-catch` blocks. The `try` block encloses the code that may throw an exception, and the `catch` block handles the exception if one is thrown.
-
+### Code
 ```cpp
-try {
-    // Code that may throw an exception
-} catch (ExceptionType e) {
-    // Code to handle the exception
-}
-```
+#include <iostream>
+using namespace std;
 
-### Throwing Exceptions
+int main() {
+    int i;
+    cout << "Enter i: ";
+    cin >> i;
 
-To throw an exception, you can use the `throw` keyword followed by an exception object or value.
-
-```cpp
-if (errorCondition) {
-    throw MyException("An error occurred");
-}
-```
-
-### Standard Exception Classes
-
-C++ provides a set of standard exception classes in the `<stdexcept>` header, such as `std::runtime_error`, `std::invalid_argument`, and `std::out_of_range`. You can use these classes to handle common types of exceptions.
-
-```cpp
-#include <stdexcept>
-
-void divide(int a, int b) {
-    if (b == 0) {
-        throw std::runtime_error("Division by zero");
+    try {
+        if (i > 20) {
+            cout << "Entered number is more than 20" << endl;
+        } else if (i > 15) {
+            throw i;
+        } else {
+            throw "Number less than 15";
+        }
+        cout << "Code which won't generate an exception" << endl;
+        // Any code here will not be executed if an exception occurs
+    } catch (int x) {
+        cout << "Exception occurred for i = " << i << endl;
+    } catch (char* message) {
+        cout << message << endl;
+    } catch (...) {
+        cout << "Default exception handling" << endl;
     }
-    // Perform the division
+
+    return 0;
 }
-```
+
 
 ## Algorithm
 
