@@ -84,6 +84,43 @@ int main() {
 ![image](https://github.com/Pranav18062004/Cpp-Exception-Handling/assets/79793482/dd1f811e-c321-4eb1-9f1a-284ee7440944)
 
 
+
+# C++ Code Examples
+
+This repository contains two C++ code examples that demonstrate exception handling and the use of constructors and destructors in C++. Below are descriptions and code snippets for each example.
+
+## Example 1: Exception Handling
+
+### Description
+This example demonstrates C++ exception handling. It asks the user to enter two numbers and performs division. If the second number is 0, it throws a `runtime_error` exception, which is then caught and handled.
+
+### Code
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i, j;
+    cout << "Enter i: ";
+    cin >> i;
+    cout << "Enter j: ";
+    cin >> j;
+
+    try {
+        if (j == 0) {
+            throw runtime_error("Division by 0");
+        }
+        int x = i / j;
+        cout << "x = " << x << endl;
+    } catch (exception &e) {
+        cerr << "Exception: " << e.what() << endl;
+    }
+
+    return 0;
+}
+
+
+
 ### Eligibility Check based on Age with Exception Handling
 ![image](https://github.com/Pranav18062004/Cpp-Exception-Handling/assets/79793482/d7bd4d78-aea8-4519-b94c-1ca616b1a4a1)
 
